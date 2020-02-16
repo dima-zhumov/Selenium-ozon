@@ -16,7 +16,11 @@ public class SearchPage extends BasePage{
     public List<WebElement> RAM;
 
     @FindBy(xpath = "//div[@class='a2t2']//a[@data-test-id='tile-name']")
-    public List<WebElement> searchList;
+    public List<WebElement> searchNameList;
+
+    @FindBy(xpath = "//div[@class='a2t2']//span[@data-test-id='tile-price']")
+    public List<WebElement> searchPriceList;
+
 
     @FindBy(xpath = "//button[contains(@qa-id,'buy')]")
     public List<WebElement> addToCartButtonList;

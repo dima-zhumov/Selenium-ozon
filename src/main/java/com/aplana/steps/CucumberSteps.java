@@ -2,6 +2,8 @@ package com.aplana.steps;
 
 import cucumber.api.java.ru.Когда;
 
+import java.io.IOException;
+
 public class CucumberSteps {
     MainPageSteps mainPageSteps = new MainPageSteps();
     SearchPageSteps searchPageSteps = new SearchPageSteps();
@@ -39,12 +41,12 @@ public class CucumberSteps {
     }
 
     @Когда("^Сохранены названия (.*) добавленных товаров$")
-    public void saveSearchProducts(String amount){
+    public void saveSearchProducts(String amount) throws IOException {
         searchPageSteps.saveSearchProducts(amount);
     }
 
     @Когда("^Перешли в корзину$")
-    public void goToCart (){
+    public void goToCart () throws InterruptedException {
         searchPageSteps.goToCart();
     }
 

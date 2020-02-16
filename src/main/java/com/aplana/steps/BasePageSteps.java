@@ -9,6 +9,9 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
@@ -36,4 +39,14 @@ public class BasePageSteps {
         driver.quit();
     }
 
+    @Attachment(type = "txt", value = "Text")
+    public byte[] saveToFileAllure(File file) throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(file));
+        String line;
+        List<String> lines = new ArrayList<>();
+        while ((line = reader.readLine()) != null) {
+            lines.add(line);
+        }
+        return lines.toString().getBytes();
+    }
 }

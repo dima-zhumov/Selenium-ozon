@@ -1,5 +1,6 @@
 package com.aplana.steps;
 
+import com.aplana.pages.BasePage;
 import com.aplana.pages.SearchPage;
 import com.google.common.base.Function;
 import io.qameta.allure.Step;
@@ -8,7 +9,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.aplana.steps.BasePageSteps.getDriver;
 
@@ -54,17 +60,30 @@ public class SearchPageSteps {
         }
     }
 
-    @Step("Запоминаем имена {0} добавленных товаров")
-    public void saveSearchProducts(String amount){
+    @Step("Запоминаем имена и цену {0} добавленных товаров")
+    public void saveSearchProducts(String amount) throws IOException {
+        HashMap<String,Integer> searchProducts = new HashMap<>();
         int size = Integer.parseInt(amount)*2;
-        ArrayList<String> nameOfSearchProducts = new ArrayList<>();
         for(int i=0; i<size; i=i+2){
-            nameOfSearchProducts.add(searchPage.searchList.get(i).getText());
+            searchProducts.put(searchPage.searchNameList.get(i).getText(),
+                    Integer.parseInt(searchPage.searchPriceList.get(i).getText().replaceAll("[^\\d]","")));
         }
-    }
+        File file = new File ("text.txt");
+        if (file.exists()) {
+            file.delete();
+        }
+        FileWriter writer = new FileWriter(file);
+        for (Map.Entry entry : searchProducts.entrySet()) {
+            writer.write("Название: " + entry.getKey().toString()
+                    + "; Цена: " + entry.getValue().toString() + "\n");
+        }
+        writer.close();
+        new BasePageSteps().saveToFileAllure(file);
+        }
+
 
     @Step("Переход в корзину")
-    public void goToCart(){
+    public void goToCart() throws InterruptedException {
         searchPage.cart.click();
     }
 
