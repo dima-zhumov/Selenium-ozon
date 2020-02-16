@@ -1,0 +1,11 @@
+com\aplana\pages\SearchPage.class
+com\aplana\utils\TestProperties.class
+com\aplana\utils\AllureListener.class
+com\aplana\steps\MainPageSteps.class
+com\aplana\pages\MainPage.class
+com\aplana\steps\CartPageSteps.class
+com\aplana\steps\SearchPageSteps.class
+com\aplana\steps\CucumberSteps.class
+com\aplana\pages\BasePage.class
+com\aplana\steps\BasePageSteps.class
+com\aplana\pages\CartPage.class

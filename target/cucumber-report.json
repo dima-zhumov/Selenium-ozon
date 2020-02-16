@@ -1,0 +1,213 @@
+[
+  {
+    "line": 3,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 6196797564,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BasePageSteps.startScenario()"
+            }
+          }
+        ],
+        "line": 4,
+        "name": "Добавление и удаление товаров",
+        "description": "",
+        "id": "ozon.ru;добавление-и-удаление-товаров",
+        "after": [
+          {
+            "result": {
+              "duration": 1293296414,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BasePageSteps.closeScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Сценарий",
+        "steps": [
+          {
+            "result": {
+              "duration": 1970158769,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "Закрыто сообщение о cookies",
+            "match": {
+              "location": "CucumberSteps.closeDialogWindow()"
+            },
+            "keyword": "Когда "
+          },
+          {
+            "result": {
+              "duration": 269894724,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "Введено в поиске iphone",
+            "match": {
+              "arguments": [
+                {
+                  "val": "iphone",
+                  "offset": 17
+                }
+              ],
+              "location": "CucumberSteps.search(String)"
+            },
+            "keyword": "Когда "
+          },
+          {
+            "result": {
+              "duration": 5585065813,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "Ограничена цена до 100000",
+            "match": {
+              "arguments": [
+                {
+                  "val": "100000",
+                  "offset": 19
+                }
+              ],
+              "location": "CucumberSteps.setPrice(String)"
+            },
+            "keyword": "Когда "
+          },
+          {
+            "result": {
+              "duration": 1392190516,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "Отмечен высокий рейтинг",
+            "match": {
+              "location": "CucumberSteps.selectHighRating()"
+            },
+            "keyword": "Когда "
+          },
+          {
+            "result": {
+              "duration": 1020656712,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "Выбран объем оперативной памяти 3",
+            "match": {
+              "arguments": [
+                {
+                  "val": "3",
+                  "offset": 32
+                }
+              ],
+              "location": "CucumberSteps.selectRAM(String)"
+            },
+            "keyword": "Когда "
+          },
+          {
+            "result": {
+              "duration": 7592029946,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "Добавлены в корзину 7 нечетных товаров",
+            "match": {
+              "arguments": [
+                {
+                  "val": "7",
+                  "offset": 20
+                }
+              ],
+              "location": "CucumberSteps.addToCart(String)"
+            },
+            "keyword": "Когда "
+          },
+          {
+            "result": {
+              "duration": 155038619,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "Сохранены названия 7 добавленных товаров",
+            "match": {
+              "arguments": [
+                {
+                  "val": "7",
+                  "offset": 19
+                }
+              ],
+              "location": "CucumberSteps.saveSearchProducts(String)"
+            },
+            "keyword": "Когда "
+          },
+          {
+            "result": {
+              "duration": 171776485,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "Перешли в корзину",
+            "match": {
+              "location": "CucumberSteps.goToCart()"
+            },
+            "keyword": "Когда "
+          },
+          {
+            "result": {
+              "duration": 2512579534,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "Проверили, что корзина содержит 7 товаров",
+            "match": {
+              "arguments": [
+                {
+                  "val": "7",
+                  "offset": 32
+                }
+              ],
+              "location": "CucumberSteps.checkAmountOfCartProducts(String)"
+            },
+            "keyword": "Когда "
+          },
+          {
+            "result": {
+              "duration": 211473560,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "Удалили все товары из корзины",
+            "match": {
+              "location": "CucumberSteps.deleteAllProducts()"
+            },
+            "keyword": "Когда "
+          },
+          {
+            "result": {
+              "duration": 803844110,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "Проверили, что корзина пуста",
+            "match": {
+              "location": "CucumberSteps.checkEmptyCart()"
+            },
+            "keyword": "Когда "
+          }
+        ]
+      }
+    ],
+    "name": "OZON.ru",
+    "description": "",
+    "id": "ozon.ru",
+    "keyword": "Функционал",
+    "uri": "src/test/resources/test.feature",
+    "tags": []
+  }
+]
