@@ -15,6 +15,7 @@ public class CartPageSteps {
 
     @Step("Проверяем, что корзина содержит {0} товаров")
     public void checkAmountOfCartProducts(String amount){
+        if(!amount.equalsIgnoreCase("все"))
         Assert.assertTrue(cartPage.amountOfCartProducts.getText().contains(amount));
     }
 

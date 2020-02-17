@@ -25,6 +25,11 @@ public class CucumberSteps {
         searchPageSteps.setPrice(price);
     }
 
+    @Когда("^Выбран бренд (.*) и (.*)")
+    public void selectBrands(String name1, String name2){
+        searchPageSteps.searchBrands(name1,name2);
+    }
+
     @Когда("^Отмечен высокий рейтинг$")
     public void selectHighRating () {
         searchPageSteps.highRating();
@@ -35,14 +40,14 @@ public class CucumberSteps {
         searchPageSteps.selectRAM(RAM);
     }
 
-    @Когда("^Добавлены в корзину (.*) нечетных товаров$")
-    public void addToCart(String amount) {
-        searchPageSteps.addToCart(amount);
+    @Когда("^Добавлены в корзину (.*) (.*) товаров$")
+    public void addToCart(String amount, String type) {
+        searchPageSteps.addToCart(amount, type);
     }
 
-    @Когда("^Сохранены названия (.*) добавленных товаров$")
-    public void saveSearchProducts(String amount) throws IOException {
-        searchPageSteps.saveSearchProducts(amount);
+    @Когда("^Сохранены названия (.*) (.*) добавленных товаров$")
+    public void saveSearchProducts(String amount, String type) throws IOException {
+        searchPageSteps.saveSearchProducts(amount, type);
     }
 
     @Когда("^Перешли в корзину$")

@@ -11,6 +11,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
@@ -39,7 +40,7 @@ public class BasePageSteps {
         driver.quit();
     }
 
-    @Attachment(type = "txt", value = "Text")
+    @Attachment(type = "text/txt", value = "Text")
     public byte[] saveToFileAllure(File file) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(file));
         String line;

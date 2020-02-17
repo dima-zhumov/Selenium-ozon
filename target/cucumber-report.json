@@ -6,7 +6,7 @@
         "before": [
           {
             "result": {
-              "duration": 9526176318,
+              "duration": 10641586207,
               "status": "passed"
             },
             "match": {
@@ -14,14 +14,14 @@
             }
           }
         ],
-        "line": 4,
+        "line": 20,
         "name": "Добавление и удаление товаров",
         "description": "",
-        "id": "ozon.ru;добавление-и-удаление-товаров",
+        "id": "ozon.ru;добавление-и-удаление-товаров;;2",
         "after": [
           {
             "result": {
-              "duration": 1816800362,
+              "duration": 1256576474,
               "status": "passed"
             },
             "match": {
@@ -30,11 +30,11 @@
           }
         ],
         "type": "scenario",
-        "keyword": "Сценарий",
+        "keyword": "Структура сценария",
         "steps": [
           {
             "result": {
-              "duration": 1356510361,
+              "duration": 1264175423,
               "status": "passed"
             },
             "line": 5,
@@ -46,7 +46,7 @@
           },
           {
             "result": {
-              "duration": 400009200,
+              "duration": 225930168,
               "status": "passed"
             },
             "line": 6,
@@ -64,7 +64,7 @@
           },
           {
             "result": {
-              "duration": 5981234856,
+              "duration": 4924511152,
               "status": "passed"
             },
             "line": 7,
@@ -82,10 +82,32 @@
           },
           {
             "result": {
-              "duration": 2160598900,
+              "duration": 2307054,
               "status": "passed"
             },
             "line": 8,
+            "name": "Выбран бренд false и false",
+            "match": {
+              "arguments": [
+                {
+                  "val": "false",
+                  "offset": 13
+                },
+                {
+                  "val": "false",
+                  "offset": 21
+                }
+              ],
+              "location": "CucumberSteps.selectBrands(String,String)"
+            },
+            "keyword": "Когда "
+          },
+          {
+            "result": {
+              "duration": 1417765042,
+              "status": "passed"
+            },
+            "line": 9,
             "name": "Отмечен высокий рейтинг",
             "match": {
               "location": "CucumberSteps.selectHighRating()"
@@ -94,10 +116,10 @@
           },
           {
             "result": {
-              "duration": 1462997725,
+              "duration": 1001053741,
               "status": "passed"
             },
-            "line": 9,
+            "line": 10,
             "name": "Выбран объем оперативной памяти 3",
             "match": {
               "arguments": [
@@ -112,46 +134,54 @@
           },
           {
             "result": {
-              "duration": 5691665317,
+              "duration": 5749622809,
               "status": "passed"
             },
-            "line": 10,
+            "line": 11,
             "name": "Добавлены в корзину 7 нечетных товаров",
             "match": {
               "arguments": [
                 {
                   "val": "7",
                   "offset": 20
+                },
+                {
+                  "val": "нечетных",
+                  "offset": 22
                 }
               ],
-              "location": "CucumberSteps.addToCart(String)"
+              "location": "CucumberSteps.addToCart(String,String)"
             },
             "keyword": "Когда "
           },
           {
             "result": {
-              "duration": 350979730,
+              "duration": 356810372,
               "status": "passed"
             },
-            "line": 11,
-            "name": "Сохранены названия 7 добавленных товаров",
+            "line": 12,
+            "name": "Сохранены названия 7 нечетных добавленных товаров",
             "match": {
               "arguments": [
                 {
                   "val": "7",
                   "offset": 19
+                },
+                {
+                  "val": "нечетных",
+                  "offset": 21
                 }
               ],
-              "location": "CucumberSteps.saveSearchProducts(String)"
+              "location": "CucumberSteps.saveSearchProducts(String,String)"
             },
             "keyword": "Когда "
           },
           {
             "result": {
-              "duration": 50081922070,
+              "duration": 103405766,
               "status": "passed"
             },
-            "line": 12,
+            "line": 13,
             "name": "Перешли в корзину",
             "match": {
               "location": "CucumberSteps.goToCart()"
@@ -160,10 +190,10 @@
           },
           {
             "result": {
-              "duration": 44612263,
+              "duration": 979626530,
               "status": "passed"
             },
-            "line": 13,
+            "line": 14,
             "name": "Проверили, что корзина содержит 7 товаров",
             "match": {
               "arguments": [
@@ -178,10 +208,10 @@
           },
           {
             "result": {
-              "duration": 213958904,
+              "duration": 209770522,
               "status": "passed"
             },
-            "line": 14,
+            "line": 15,
             "name": "Удалили все товары из корзины",
             "match": {
               "location": "CucumberSteps.deleteAllProducts()"
@@ -190,10 +220,240 @@
           },
           {
             "result": {
-              "duration": 820029256,
+              "duration": 537706029,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "Проверили, что корзина пуста",
+            "match": {
+              "location": "CucumberSteps.checkEmptyCart()"
+            },
+            "keyword": "Когда "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 5581491409,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BasePageSteps.startScenario()"
+            }
+          }
+        ],
+        "line": 21,
+        "name": "Добавление и удаление товаров",
+        "description": "",
+        "id": "ozon.ru;добавление-и-удаление-товаров;;3",
+        "after": [
+          {
+            "result": {
+              "duration": 1024554602,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BasePageSteps.closeScenario()"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Структура сценария",
+        "steps": [
+          {
+            "result": {
+              "duration": 2542279084,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "Закрыто сообщение о cookies",
+            "match": {
+              "location": "CucumberSteps.closeDialogWindow()"
+            },
+            "keyword": "Когда "
+          },
+          {
+            "result": {
+              "duration": 403550940,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "Введено в поиске беспроводные наушники",
+            "match": {
+              "arguments": [
+                {
+                  "val": "беспроводные наушники",
+                  "offset": 17
+                }
+              ],
+              "location": "CucumberSteps.search(String)"
+            },
+            "keyword": "Когда "
+          },
+          {
+            "result": {
+              "duration": 6729410517,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "Ограничена цена до 10000",
+            "match": {
+              "arguments": [
+                {
+                  "val": "10000",
+                  "offset": 19
+                }
+              ],
+              "location": "CucumberSteps.setPrice(String)"
+            },
+            "keyword": "Когда "
+          },
+          {
+            "result": {
+              "duration": 3350885169,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "Выбран бренд Samsung и Beats",
+            "match": {
+              "arguments": [
+                {
+                  "val": "Samsung",
+                  "offset": 13
+                },
+                {
+                  "val": "Beats",
+                  "offset": 23
+                }
+              ],
+              "location": "CucumberSteps.selectBrands(String,String)"
+            },
+            "keyword": "Когда "
+          },
+          {
+            "result": {
+              "duration": 1138485616,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "Отмечен высокий рейтинг",
+            "match": {
+              "location": "CucumberSteps.selectHighRating()"
+            },
+            "keyword": "Когда "
+          },
+          {
+            "result": {
+              "duration": 372535,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "Выбран объем оперативной памяти false",
+            "match": {
+              "arguments": [
+                {
+                  "val": "false",
+                  "offset": 32
+                }
+              ],
+              "location": "CucumberSteps.selectRAM(String)"
+            },
+            "keyword": "Когда "
+          },
+          {
+            "result": {
+              "duration": 1604195122,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "Добавлены в корзину все четных товаров",
+            "match": {
+              "arguments": [
+                {
+                  "val": "все",
+                  "offset": 20
+                },
+                {
+                  "val": "четных",
+                  "offset": 24
+                }
+              ],
+              "location": "CucumberSteps.addToCart(String,String)"
+            },
+            "keyword": "Когда "
+          },
+          {
+            "result": {
+              "duration": 209857574,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "Сохранены названия все четных добавленных товаров",
+            "match": {
+              "arguments": [
+                {
+                  "val": "все",
+                  "offset": 19
+                },
+                {
+                  "val": "четных",
+                  "offset": 23
+                }
+              ],
+              "location": "CucumberSteps.saveSearchProducts(String,String)"
+            },
+            "keyword": "Когда "
+          },
+          {
+            "result": {
+              "duration": 101113537,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "Перешли в корзину",
+            "match": {
+              "location": "CucumberSteps.goToCart()"
+            },
+            "keyword": "Когда "
+          },
+          {
+            "result": {
+              "duration": 555381,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "Проверили, что корзина содержит все товаров",
+            "match": {
+              "arguments": [
+                {
+                  "val": "все",
+                  "offset": 32
+                }
+              ],
+              "location": "CucumberSteps.checkAmountOfCartProducts(String)"
+            },
+            "keyword": "Когда "
+          },
+          {
+            "result": {
+              "duration": 1011526910,
               "status": "passed"
             },
             "line": 15,
+            "name": "Удалили все товары из корзины",
+            "match": {
+              "location": "CucumberSteps.deleteAllProducts()"
+            },
+            "keyword": "Когда "
+          },
+          {
+            "result": {
+              "duration": 450090036,
+              "status": "passed"
+            },
+            "line": 16,
             "name": "Проверили, что корзина пуста",
             "match": {
               "location": "CucumberSteps.checkEmptyCart()"

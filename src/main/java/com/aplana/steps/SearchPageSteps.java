@@ -7,6 +7,7 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
@@ -32,6 +33,30 @@ public class SearchPageSteps {
         wait.until((Function<? super WebDriver, Boolean>) driver -> !(s.equals(searchPage.amountOfSearchProducts.getText())));
     }
 
+    @Step("Выбираем бренды")
+    public void searchBrands(String name1, String name2){
+        if(!name1.equals("false")){
+            String s = searchPage.amountOfSearchProducts.getText();
+            searchPage.allBrands.click();
+            wait.until(ExpectedConditions.elementToBeClickable(searchPage.searchBrand));
+            searchPage.searchBrand.click();
+            searchPage.searchBrand.sendKeys(name1);
+            wait.until((Function<? super WebDriver, Boolean>) driver -> (name1.equals(searchPage.selectBrand.getText())));
+            searchPage.selectBrand.click();
+            wait.until((Function<? super WebDriver, Boolean>) driver -> !(s.equals(searchPage.amountOfSearchProducts.getText())));
+        }
+        if(!name2.equals("false")){
+            String s = searchPage.amountOfSearchProducts.getText();
+            if (name1.equals("false")) searchPage.allBrands.click();
+            wait.until(ExpectedConditions.elementToBeClickable(searchPage.searchBrand));
+            searchPage.searchBrand.click();
+            searchPage.searchBrand.sendKeys(name2);
+            wait.until((Function<? super WebDriver, Boolean>) driver -> (name2.equals(searchPage.selectBrand.getText())));
+            searchPage.selectBrand.click();
+            wait.until((Function<? super WebDriver, Boolean>) driver -> !(s.equals(searchPage.amountOfSearchProducts.getText())));
+        }
+    }
+
     @Step("Отмечаем высокий рейтинг")
     public void highRating() {
         String s = searchPage.amountOfSearchProducts.getText();
@@ -42,29 +67,52 @@ public class SearchPageSteps {
 
     @Step("Отмечаем {0} ГБ")
     public void selectRAM(String RAM) {
-        String s = searchPage.amountOfSearchProducts.getText();
-        searchPage.scroll(searchPage.RAM.get(0));
-        searchPage.selectRAM(searchPage.RAM,RAM);
-        wait.until((Function<? super WebDriver, Boolean>) driver -> !(s.equals(searchPage.amountOfSearchProducts.getText())));
-    }
-
-    @Step("Добавляем в корзину {0} нечетных товаров")
-    public void addToCart(String amount){
-        String s="";
-        for(int i=0; i<Integer.parseInt(amount); i++){
-            searchPage.scroll(searchPage.addToCartButtonList.get(i));
-            searchPage.addToCartButtonList.get(i).click();
-            String finalS = s;
-            wait.until((Function<? super WebDriver, Boolean>) driver -> !(finalS.equals(searchPage.cartProductsAmount.getText())));
-            s = searchPage.cartProductsAmount.getText();
+        if(!RAM.equalsIgnoreCase("false")) {
+            String s = searchPage.amountOfSearchProducts.getText();
+            searchPage.scroll(searchPage.RAM.get(0));
+            searchPage.selectRAM(searchPage.RAM, RAM);
+            wait.until((Function<? super WebDriver, Boolean>) driver -> !(s.equals(searchPage.amountOfSearchProducts.getText())));
         }
     }
 
-    @Step("Запоминаем имена и цену {0} добавленных товаров")
-    public void saveSearchProducts(String amount) throws IOException {
+
+    @Step("Добавляем в корзину {0} {1} товаров")
+    public void addToCart(String amount, String type){
+        String s="";
+        int size=0;
+        if (amount.equalsIgnoreCase("все")) size = searchPage.addToCartButtonList.size()/2;
+        else size=Integer.parseInt(amount);
+        if (type.equalsIgnoreCase("четных")) {
+            for(int i=1; i<size; i++){
+                searchPage.scroll(searchPage.addToCartButtonList.get(i));
+                searchPage.addToCartButtonList.get(i).click();
+                String finalS = s;
+                wait.until((Function<? super WebDriver, Boolean>) driver -> !(finalS.equals(searchPage.cartProductsAmount.getText())));
+                s = searchPage.cartProductsAmount.getText();
+            }
+        }
+        else for (int i = 0; i < size; i++) {
+                searchPage.scroll(searchPage.addToCartButtonList.get(i));
+                searchPage.addToCartButtonList.get(i).click();
+                String finalS = s;
+                wait.until((Function<? super WebDriver, Boolean>) driver -> !(finalS.equals(searchPage.cartProductsAmount.getText())));
+                s = searchPage.cartProductsAmount.getText();
+            }
+    }
+
+    @Step("Запоминаем имена и цену {0} {1} добавленных товаров")
+    public void saveSearchProducts(String amount, String type) throws IOException {
         HashMap<String,Integer> searchProducts = new HashMap<>();
-        int size = Integer.parseInt(amount)*2;
-        for(int i=0; i<size; i=i+2){
+        int size = 0;
+        if (amount.equalsIgnoreCase("все")) size = searchPage.searchNameList.size();
+        else size = Integer.parseInt(amount)*2;
+        if (type.equalsIgnoreCase("четных")) {
+            for(int i=1; i<size; i=i+2){
+                searchProducts.put(searchPage.searchNameList.get(i).getText(),
+                        Integer.parseInt(searchPage.searchPriceList.get(i).getText().replaceAll("[^\\d]","")));
+            }
+        }
+        else for(int i=0; i<size; i=i+2){
             searchProducts.put(searchPage.searchNameList.get(i).getText(),
                     Integer.parseInt(searchPage.searchPriceList.get(i).getText().replaceAll("[^\\d]","")));
         }
@@ -79,11 +127,11 @@ public class SearchPageSteps {
         }
         writer.close();
         new BasePageSteps().saveToFileAllure(file);
-        }
+    }
 
 
     @Step("Переход в корзину")
-    public void goToCart() throws InterruptedException {
+    public void goToCart() {
         searchPage.cart.click();
     }
 

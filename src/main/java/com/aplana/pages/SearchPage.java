@@ -15,10 +15,10 @@ public class SearchPage extends BasePage{
     @FindBy(xpath = "//div[contains(text(),'Оперативная память')]/..//span")
     public List<WebElement> RAM;
 
-    @FindBy(xpath = "//div[@class='a2t2']//a[@data-test-id='tile-name']")
+    @FindBy(xpath = "//div[@class='am1']//a[@data-test-id='tile-name']")
     public List<WebElement> searchNameList;
 
-    @FindBy(xpath = "//div[@class='a2t2']//span[@data-test-id='tile-price']")
+    @FindBy(xpath = "//div[@class='am1']//span[@data-test-id='tile-price']")
     public List<WebElement> searchPriceList;
 
 
@@ -31,11 +31,18 @@ public class SearchPage extends BasePage{
     @FindBy(xpath = "//div[contains(text(),'По запросу')]")
     public WebElement amountOfSearchProducts;
 
-    @FindBy(xpath = "//span[contains(text(),'Интернет-магазин')]")
-    public WebElement portView;
-
     @FindBy(xpath = "//span[contains(@class,'caption')]")
     public WebElement cartProductsAmount;
+
+    @FindBy(xpath = "//p[text()='Найти']/..//input")
+    public WebElement searchBrand;
+
+    @FindBy(xpath = "//div[contains(text(),'Бренды')]/..//span[contains(text(),'Посмотреть все')]")
+    public WebElement allBrands;
+
+    @FindBy(xpath = "//div[contains(text(),'Бренды')]/..//span")
+    public WebElement selectBrand;
+
 
     public void selectRAM(List<WebElement> list, String amount) {
         for (WebElement element : list) {
